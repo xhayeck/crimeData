@@ -1,6 +1,5 @@
 /*eslint-disable no-console*/
 //Node configuration
-// require('babel-polyfill');
 let express = require('express');
 let app = express();
 let bodyParser = require('body-parser');

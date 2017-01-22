@@ -8,6 +8,6 @@ import HomePage from './components/home/HomePage.js';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    <Route path="/:address" component={HomePage} />
+    <Route path="/:address" component={HomePage} /> {/*to make the query a route*/}
   </Route>
 );

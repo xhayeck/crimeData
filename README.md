@@ -25,7 +25,17 @@ If you need/want to work on back end of the project, you'll first need to enter 
 
 ##What I've Done So Far...
 
+**Front End**
+* *Location Bar*
+  * Creation of component that takes in the users address, radial search distance, and date query to send to the server
+
+**Back End**
+* *Server*
+  * Creation of server that runs the application
+
 ##Currently Working On...
+* *Back End*
+  * Creating API call to various cities open data
 
 ##Many Thanks To...
   * the SF Crime Data group at **Code for America** (https://github.com/sfbrigade/sf-crime-data). I saw they were building this for San Francisco only and I wanted to expand it's reach and turn it from being a client-side only app to a full stack app. Thanks for the inspiration!
