@@ -116,20 +116,20 @@ function dateOptions(key, index) {
   return ranges[key][index];
 }
 
-// function mapStateToProps(state, ownProps) {
-//   const location = ownProps.params; //should be from path '/:address' in routes. Idea is to later allow address to act as website address as well
-//   let address = {'street': '', 'city': '', 'state': '', 'zip': ''};
-//   let distance = {'feet': 2640, 'meter': 804.67, 'mile': .5, 'km': .80};
-//   let dates = {'start': dateOptions('Last 30 Days', 0), 'end': dateOptions('Last 30 Days', 1), 'ranges': dateOptions('keys')};
-//   if(location) {
-//     address = location;
-//   }
-//   return {
-//     address: address,
-//     distance: distance,
-//     dates: dates
-//   };
-// }
+function mapStateToProps(state, ownProps) {
+  const location = ownProps.params; //should be from path '/:address' in routes. Idea is to later allow address to act as website address as well
+  let address = {'street': '', 'city': '', 'state': '', 'zip': ''};
+  let distance = {'feet': 2640, 'meter': 804.67, 'mile': .5, 'km': .80};
+  let dates = {'start': dateOptions('Last 30 Days', 0), 'end': dateOptions('Last 30 Days', 1), 'ranges': dateOptions('keys')};
+  if(location) {
+    address = location;
+  }
+  return {
+    address: address,
+    distance: distance,
+    dates: dates
+  };
+}
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -137,5 +137,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapDispatchToProps)(ManageLocationBar);
-// export default connect(mapStateToProps, mapDispatchToProps)(ManageLocationBar);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageLocationBar);
