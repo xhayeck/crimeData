@@ -5,7 +5,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <LocationBar />
+        <LocationBar /> {/*Where the user inputs data to query the Api's*/}
       </div>
     );
   }

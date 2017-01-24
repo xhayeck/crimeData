@@ -9,7 +9,7 @@ module.exports = {
     let dates = dataSearch.dates;
     let googleGeocodeApi = process.env.googleGeocodeApi; //google-geocoding api
     let crimes = [];
-    if(address.street) {
+    if(address.street) { //let's us know if user wants a specific location as the search point
       request('https://maps.googleapis.com/maps/api/geocode/json?address='
                 + address.street
                 + ','
@@ -25,12 +25,13 @@ module.exports = {
             body = JSON.parse(body);
             let latitude = body.results[0].geometry.location.lat;
             let longitude = body.results[0].geometry.location.lng;
-            let query = "?$where="
-                        + "date >= '" + dates.start + "'"
-                        + "AND date <= '" + dates.end + "'"
-                        + "AND within_circle(location,"+ latitude + "," + longitude + "," + distance.feet + ")"
-                        + "&$order=date DESC";
-                        // + "&$limit=100000";
+            // let query = "?$where="
+            //             + "date >= '" + dates.start + "'"
+            //             + "AND date <= '" + dates.end + "'"
+            //             + "AND within_circle(location,"+ latitude + "," + longitude + "," + distance.feet + ")"
+            //             + "&$order=date DESC";
+            //             + "&$limit=100000";
+            // console.log('query: ', query);
             let sources = list[address.state];
             let count = 0;
             sources.forEach(function(city) {
@@ -49,13 +50,8 @@ module.exports = {
             });
           }
         });
-      }
-    else {
+      } else { //in case user wants crime information for a particular city
       //If user wishes to get crime info for a whole city rather than radial search of a certain location
-      // console.log('Address: ', address);
-      // console.log('Dates: ', dates);
-      // let query = '?$where='
-      //             + ''
     }
   }
 };
