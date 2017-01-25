@@ -9,13 +9,14 @@ module.exports = {
       "apiUrl": { //Key(s) represent date(s) that that particular dataset has
         "2003ToPresent": "https://data.sfgov.org/resource/cuks-n6tp.json"
       },
-      "url": "https://data.sfgov.org/browse?category=Public+Safety&limitTo=datasets&tags=crime"
-      // "query": "?$where="
-      //             + "date >= '" + dates.start + "'"
-      //             + "AND date <= '" + dates.end + "'"
-      //             + "AND within_circle(location,"+ latitude + "," + longitude + "," + distance.feet + ")"
-      //             + "&$order=date DESC"
-      //             + "&$limit=100000"
+      "url": "https://data.sfgov.org/browse?category=Public+Safety&limitTo=datasets&tags=crime",
+      "query": {
+        "startDate":"date >= '",
+        "endDate": "AND date <= '",
+        "radius": "AND within_circle(location,",
+        "order": "&$order=date DESC",
+        "limit": "&$limit=100000"
+      }
     }
   ],
   "IL": [
@@ -24,7 +25,14 @@ module.exports = {
       "apiUrl": { //Key(s) represent date(s) that that particular dataset has
         "2001ToPresent": "https://data.cityofchicago.org/resource/6zsd-86xi.json"
       },
-      "url": "https://data.cityofchicago.org/browse?category=Public+Safety&limitTo=datasets"
+      "url": "https://data.cityofchicago.org/browse?category=Public+Safety&limitTo=datasets",
+      "query": {
+        "startDate":"",
+        "endDate": "",
+        "radius": "",
+        "order": "",
+        "limit": ""
+      }
     }
   ],
   "WA": [
@@ -33,7 +41,14 @@ module.exports = {
       "apiUrl": { //Key(s) represent date(s) that that particular dataset has
         "Aug2011ToPresent": "https://data.seattle.gov/resource/y7pv-r3kh.json"
       },
-      "url": "https://data.seattle.gov/browse?category=Public+Safety&limitTo=datasets&tags=police+report"
+      "url": "https://data.seattle.gov/browse?category=Public+Safety&limitTo=datasets&tags=police+report",
+      "query": {
+        "startDate":"occurred_date_or_date_range_start ",
+        "endDate": "AND occurred_date_range_end ",
+        "radius": "AND within_circle(location,",
+        "order": "&$order=date DESC",
+        "limit": "&$limit=100000"
+      }
     }
   ]
 };
