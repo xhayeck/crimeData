@@ -32,10 +32,21 @@ If you need/want to work on back end of the project, you'll first need to enter 
 **Back End**
 * *Server*
   * Creation of server that runs the application
+  * Creating API call to various cities open data
+    * Because each city holds datasets in different ways (e.g. Some cities hold all crime information in one dataset, while other cities separate their information according to year but are internally consistent with how you can obtain the information, while others are neither consistent with how they separate their information nor how you obtain the information between datasets), not all cities work perfectly
+    * When typing in the state you wish to search, make sure you use the two letter (capitalized) abbreviation for the state (e.g. California = CA)
 
 ##Currently Working On...
-* *Back End*
-  * Creating API call to various cities open data
+* *Front End*
+  * Setting up the action event to store the returned data sets to the store
+
+##Cities You Can Currently Access
+  * Los Angeles, CA
+  * San Francisco, CA
+  * Chicago, IL
+  * New Orleans, LA
+  * New York, New York
+  * Seattle, WA
 
 ##Many Thanks To...
   * the SF Crime Data group at **Code for America** (https://github.com/sfbrigade/sf-crime-data). I saw they were building this for San Francisco only and I wanted to expand it's reach and turn it from being a client-side only app to a full stack app. Thanks for the inspiration!
