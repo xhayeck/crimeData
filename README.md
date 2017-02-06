@@ -45,7 +45,7 @@ If you need/want to work on back end of the project, you'll first need to enter 
   * San Francisco, CA
   * Chicago, IL
   * New Orleans, LA
-  * New York, New York
+  * New York, NY
   * Seattle, WA
 
 ##Many Thanks To...
