@@ -88,22 +88,24 @@ module.exports = {
                       + cityQuery['timeEnd']
                       + cityQuery['dateOrder'];
           for(let apiUrl in city['apiUrl']) { //To cycle through each api in a city
-            apiSize++;
-            request(city['apiUrl'][apiUrl] + query, function(error, response, body) {
-              if(error) {
-                res.send(error);
-              }
-              let exist = body.search('message'); //Checks if api returns crime data or message from api stating an error happened because columns don't exist (if columns don't exist, then that's not the city we want)
-              if(exist === -1 && body.length > 3) { //checks if what was returned was proper crime data
-                crimes.push(body);
-              }
-              if(response) {
-                apiCount++;
-              }
-              if(cityCount === state.length && apiCount === apiSize) { //To make sure all api calls are finished before sending back to client
-                res.send(crimes);
-              }
-            });
+            if(city['city'] === address.city) {
+              apiSize++;
+              request(city['apiUrl'][apiUrl] + query, function(error, response, body) {
+                if(error) {
+                  res.send(error);
+                }
+                let exist = body.search('message'); //Checks if api returns crime data or message from api stating an error happened because columns don't exist (if columns don't exist, then that's not the city we want)
+                if(exist === -1 && body.length > 3) { //checks if what was returned was proper crime data
+                  crimes.push(body);
+                }
+                if(response) {
+                  apiCount++;
+                }
+                if(cityCount === state.length && apiCount === apiSize) { //To make sure all api calls are finished before sending back to client
+                  res.send(crimes);
+                }
+              });
+            }
           }
           cityCount++;
       });
