@@ -7,6 +7,7 @@ import AddressBar from './addressBar/addressBar.js';
 import SearchDistance from './searchDistance/searchDistance.js';
 import Calendar from './calendar/calendar.js';
 import SearchButton from './searchButton/searchButton.js';
+import {rangesFormattedForDropdown} from '../../selectors/selectors.js';
 
 class ManageLocationBar extends React.Component {
   constructor(props, context) {
@@ -16,6 +17,7 @@ class ManageLocationBar extends React.Component {
       address: Object.assign({}, this.props.address),
       distance: Object.assign({}, this.props.distance),
       dates: Object.assign({}, this.props.dates)
+
     };
 
     this.updateAddressState = this.updateAddressState.bind(this);
@@ -51,6 +53,7 @@ class ManageLocationBar extends React.Component {
       dates[field] = event.target.value;
       dates['start'] = dateOptions(dates[field], 0);
       dates['end'] = dateOptions(dates[field], 1);
+      dates['currentRange'] = event.target.value;
     } else {
       dates[field] = event.target.value;
     }
@@ -81,6 +84,7 @@ class ManageLocationBar extends React.Component {
         <div className="form-group">
           <Calendar
             dates={this.state.dates}
+            ranges={this.props.ranges}
             onChange={this.updateDate} /> {/*Component for user inputing the dates they wish to search*/}
         </div>
         <div className="form-group">
@@ -96,7 +100,8 @@ ManageLocationBar.propTypes = {
   address: PropTypes.object.isRequired,
   distance: PropTypes.object.isRequired,
   dates: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  ranges: PropTypes.array.isRequired
 };
 
 function dateOptions(key, index) {
@@ -120,14 +125,15 @@ function mapStateToProps(state, ownProps) {
   const location = ownProps.params; //should be from path '/:address' in routes. Idea is to later allow address to act as website address as well
   let address = {'street': '', 'city': '', 'state': '', 'zip': ''};
   let distance = {'feet': 2640, 'meter': 804.67, 'mile': .5, 'km': .80};
-  let dates = {'start': dateOptions('Last 30 Days', 0), 'end': dateOptions('Last 30 Days', 1), 'ranges': dateOptions('keys')};
+  let dates = {'start': dateOptions('Last 30 Days', 0), 'end': dateOptions('Last 30 Days', 1), 'ranges': dateOptions('keys'), currentRange: dateOptions('keys', 0)};
   if(location) {
     address = location;
   }
   return {
     address: address,
     distance: distance,
-    dates: dates
+    dates: dates,
+    ranges: rangesFormattedForDropdown(state.ranges)
   };
 }
 

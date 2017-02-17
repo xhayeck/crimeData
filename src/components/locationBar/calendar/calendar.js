@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import SelectInput from './selectRange.js';
 
-const Calendar = ({dates, onChange}) => {
+const Calendar = ({dates, ranges, onChange}) => {
   return (
     <div className="daterange form-inline">
       <div className="form-group">
@@ -22,7 +22,8 @@ const Calendar = ({dates, onChange}) => {
     </div>
     <div className="form-group">
       <SelectInput
-        ranges={dates.ranges}
+        ranges={dates}
+        options={ranges}
         onChange={onChange} />
     </div>
     </div>
@@ -31,6 +32,7 @@ const Calendar = ({dates, onChange}) => {
 
 Calendar.propTypes = {
   dates: PropTypes.object.isRequired,
+  ranges: React.PropTypes.array,
   onChange: PropTypes.func.isRequired
 };
 
