@@ -1,17 +1,20 @@
 require('isomorphic-fetch');
 import * as types from './actionTypes.js';
 
-export function requestCrime(locDatDis) {
-  return {type: types.FETCH_CRIME_STATS, locDatDis};
+export function loadCrimeStats() {
+  return {type: types.LOAD_CRIME_STATS};
 }
 
+export function soughtCrimeStats(soughtCrimes) {
+  return {type: types.SOUGHT_CRIME_STATS, soughtCrimes};
+}
+
+
 export function getCrime(info) {
-  //call the backend
   return dispatch => {
-    dispatch(requestCrime(info));
     let myHeaders = new Headers();
     myHeaders.append('Content-Type', 'application/json');
-    return fetch('/api/crimeSearch/getCrime', {
+    return fetch('/api/crimeSearch/getCrime', { //call the backend
       method: 'POST',
       headers: myHeaders,
       mode: 'cors',
@@ -25,6 +28,13 @@ export function getCrime(info) {
       })
       .then(function(crimes) {
         console.log('jsonResponse: ', crimes);
+        dispatch(soughtCrimeStats(crimes));
       });
     };
 }
+
+// export function loadCrimes() {
+//   return function(dispatch) {
+//     dispatch(loadCrimeStats());
+//   };
+// }

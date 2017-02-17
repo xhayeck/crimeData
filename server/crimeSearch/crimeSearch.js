@@ -45,6 +45,7 @@ module.exports = {
                           + ","
                           + distance.meter
                           + ")"
+                          + '&$limit=100000'
                           + streetQuery['dateOrder'];
               for(let apiUrl in city['apiUrl']) { //To cycle through each api in a city
                 apiSize++;
@@ -54,13 +55,20 @@ module.exports = {
                   }
                   let exist = body.search('message'); //Checks if api returns crime data or message from api stating an error happened because columns don't exist (if columns don't exist, then that's not the city we want)
                   if(exist === -1 && body.length > 3) { //checks if what was returned was proper crime data
-                    crimes.push(body);
+                    crimes.push(JSON.parse(body));
                   }
                   if(response) {
                     apiCount++;
                   }
                   if(cityCount === sources.length && apiCount === apiSize) { //To make sure all api calls are finished before sending back to client
-                    res.send(crimes);
+                    if(crimes.length > 1) {
+                      for(let i = 1; i < crimes.length; i++) {
+                        crimes[0] = crimes[0].concat(crimes[i]);
+                      }
+                      res.send(crimes[0]);
+                    } else {
+                      res.send(crimes);
+                    }
                   }
                 });
               }
@@ -86,7 +94,8 @@ module.exports = {
                       + cityQuery['dateEnd']
                       + dates.end
                       + cityQuery['timeEnd']
-                      + cityQuery['dateOrder'];
+                      + cityQuery['dateOrder']
+                      + '&$limit=100000';
           for(let apiUrl in city['apiUrl']) { //To cycle through each api in a city
             if(city['city'] === address.city) {
               apiSize++;
@@ -96,13 +105,20 @@ module.exports = {
                 }
                 let exist = body.search('message'); //Checks if api returns crime data or message from api stating an error happened because columns don't exist (if columns don't exist, then that's not the city we want)
                 if(exist === -1 && body.length > 3) { //checks if what was returned was proper crime data
-                  crimes.push(body);
+                  crimes.push(JSON.parse(body));
                 }
                 if(response) {
                   apiCount++;
                 }
                 if(cityCount === state.length && apiCount === apiSize) { //To make sure all api calls are finished before sending back to client
-                  res.send(crimes);
+                  if(crimes.length > 1) {
+                    for(let i = 1; i < crimes.length; i++) {
+                      crimes[0] = crimes[0].concat(crimes[i]);
+                    }
+                    res.send(crimes[0]);
+                  } else {
+                    res.send(crimes);
+                  }
                 }
               });
             }
