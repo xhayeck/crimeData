@@ -40,7 +40,7 @@ If you need/want to work on back end of the project, you'll first need to enter 
 
 ##Currently Working On...
 * *Front End*
-  * Fixing bug that appears when you select from dates drop down menu that states "TypeError: t.map is not a function" on selectRange.js:9
+  * Create table to show crimes
 
 ##Cities You Can Currently Access
   * Los Angeles, CA
