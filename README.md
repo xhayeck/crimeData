@@ -28,6 +28,8 @@ If you need/want to work on back end of the project, you'll first need to enter 
 **Front End**
 * *Location Bar*
   * Creation of component that takes in the users address, radial search distance, and date query to send to the server
+* *Redux*
+  * Action event to store returned data sets from the API to the store
 
 **Back End**
 * *Server*
@@ -38,7 +40,7 @@ If you need/want to work on back end of the project, you'll first need to enter 
 
 ##Currently Working On...
 * *Front End*
-  * Setting up the action event to store the returned data sets to the store
+  * Fixing bug that appears when you select from dates drop down menu that states "TypeError: t.map is not a function" on selectRange.js:9
 
 ##Cities You Can Currently Access
   * Los Angeles, CA
