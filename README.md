@@ -40,7 +40,7 @@ If you need/want to work on back end of the project, you'll first need to enter 
   * Creation of server that runs the application
   * Creating API call to various cities open data
     * Because each city holds datasets in different ways (e.g. Some cities hold all crime information in one dataset, while other cities separate their information according to year but are internally consistent with how you can obtain the information, while others are neither consistent with how they separate their information nor how you obtain the information between datasets), not all cities work perfectly
-    * When typing in the state you wish to search, make sure you use the two letter (capitalized) abbreviation for the state (e.g. California = CA)
+    * User can type either abbreviation or full name for state
 
 ##Currently Working On...
 * *Front End*

@@ -1,5 +1,6 @@
 let request = require('request');
 let list = require('./stateList.js');
+let abbr = require('./stateAbbreviation.js');
 
 module.exports = {
   search: function(req, res) {
@@ -9,7 +10,12 @@ module.exports = {
     let dates = dataSearch.dates;
     let googleGeocodeApi = process.env.googleGeocodeApi; //google-geocoding api
     let crimes = [];
-    if(address.street && address.city !== 'New Orleans') { //let's us know if user wants a specific location as the search point. New Orleans doesn't have l
+    address.city = address.city.toLowerCase();
+    address.state = address.state.toLowerCase();
+    if(address.state.length > 2) {
+      address.state = abbr[address.state];
+    }
+    if(address.street && address.city !== 'new orleans') { //let's us know if user wants a specific location as the search point. New Orleans doesn't have l
       request('https://maps.googleapis.com/maps/api/geocode/json?address=' //Calls google api to change address to geographic coordinates
                 + address.street
                 + ','

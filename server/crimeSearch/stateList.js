@@ -6,9 +6,9 @@ The 'url' is where you can find a list of the available datasets for that city
 */
 
 module.exports = {
-  "CA": [
+  "ca": [
     {
-      "city": "Los Angeles",
+      "city": "los angeles",
       "apiUrl": {
         "2011": "https://data.lacity.org/resource/a7yi-qdzt.json",
         "2012thru2015": "https://data.lacity.org/resource/y9pe-qdrd.json",
@@ -25,7 +25,7 @@ module.exports = {
       }
     },
     {
-      "city": "San Francisco",
+      "city": "san francisco",
       "apiUrl": {
         "2003ToPresent": "https://data.sfgov.org/resource/cuks-n6tp.json"
       },
@@ -40,9 +40,9 @@ module.exports = {
       }
     }
   ],
-  "IL": [
+  "il": [
     {
-      "city": "Chicago", //Chicago doesn't always use longitude or latitude to mark on the dataset where the crime happened
+      "city": "chicago", //Chicago doesn't always use longitude or latitude to mark on the dataset where the crime happened
       "apiUrl": {
         "2001ToPresent": "https://data.cityofchicago.org/resource/6zsd-86xi.json",
         "oneYearPriorToPresent": "https://data.cityofchicago.org/resource/3uz7-d32j.json"
@@ -58,9 +58,9 @@ module.exports = {
       }
     }
   ],
-  "LA": [
+  "la": [
     {
-      "city": "New Orleans", //New Orleans doesn't use longitude or latitude to mark on the dataset where the crime happened
+      "city": "new orleans", //New Orleans doesn't use longitude or latitude to mark on the dataset where the crime happened
       "apiUrl": {
         "2010": "https://data.nola.gov/resource/tevm-gbnt.json",
         "2011": "https://data.nola.gov/resource/pqss-ewcr.json",
@@ -82,9 +82,9 @@ module.exports = {
       }
     }
   ],
-  "NY": [
+  "ny": [
     {
-      "city": "New York",
+      "city": "new york",
       "apiUrl": {
         "2006thru2015": "https://data.cityofnewyork.us/resource/9s4h-37hy.json",
         "2016": "https://data.cityofnewyork.us/resource/7x9x-zpz6.json"
@@ -100,9 +100,9 @@ module.exports = {
       }
     }
   ],
-  "WA": [
+  "wa": [
     {
-      "city": "Seattle",
+      "city": "seattle",
       "apiUrl": {
         "Aug2011ToPresent": "https://data.seattle.gov/resource/y7pv-r3kh.json"
       },
