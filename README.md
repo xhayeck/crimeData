@@ -57,3 +57,4 @@ If you need/want to work on back end of the project, you'll first need to enter 
 ##Many Thanks To...
   * the SF Crime Data group at **Code for America** (https://github.com/sfbrigade/sf-crime-data). I saw they were building this for San Francisco only and I wanted to expand it's reach and turn it from being a client-side only app to a full stack app. Thanks for the inspiration!
   * Cory House as I used his React Slingshot starter kit (https://github.com/coryhouse/react-slingshot) to help me get started on the front end.
+  * Tanner Linsley for creating the table component I used (https://github.com/tannerlinsley/react-table)
