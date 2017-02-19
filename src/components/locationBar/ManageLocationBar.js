@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import moment from 'moment';
 import * as crimeActions from '../../actions/crimeActions.js';
+import * as callCrimeActions from '../../actions/crimeCallActions.js';
 import AddressBar from './addressBar/addressBar.js';
 import SearchDistance from './searchDistance/searchDistance.js';
 import Calendar from './calendar/calendar.js';
@@ -62,9 +63,10 @@ class ManageLocationBar extends React.Component {
 
   onSubmit(event) {
     event.preventDefault();
-    this.props.actions.getCrime({address: this.state.address, distance: this.state.distance, dates: this.state.dates})
+    this.props.callCrime.crimeCall(true); //let redux store know that an api call has been made
+    this.props.actions.getCrime({address: this.state.address, distance: this.state.distance, dates: this.state.dates}) //api call
       .catch(error => {
-        console.error('error: ', error);
+        console.error('getCrime error: ', error);
       });
   }
 
@@ -101,6 +103,7 @@ ManageLocationBar.propTypes = {
   distance: PropTypes.object.isRequired,
   dates: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
+  callCrime: PropTypes.object.isRequired,
   ranges: PropTypes.array.isRequired
 };
 
@@ -139,7 +142,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(crimeActions, dispatch)
+    actions: bindActionCreators(crimeActions, dispatch),
+    callCrime: bindActionCreators(callCrimeActions, dispatch)
   };
 }
 

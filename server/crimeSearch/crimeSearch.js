@@ -67,7 +67,7 @@ module.exports = {
                       }
                       res.send(crimes[0]);
                     } else {
-                      res.send(crimes);
+                      res.send(crimes[0]);
                     }
                   }
                 });
@@ -117,7 +117,7 @@ module.exports = {
                     }
                     res.send(crimes[0]);
                   } else {
-                    res.send(crimes);
+                    res.send(crimes[0]);
                   }
                 }
               });

@@ -8,6 +8,7 @@ This project will use the following stack technologies:
   * React
   * Redux
   * Express
+  * Open City Data stored in Socrata
 
 As this is a personal side project for me, updates will come at their own pace.
 
@@ -30,6 +31,9 @@ If you need/want to work on back end of the project, you'll first need to enter 
   * Creation of component that takes in the users address, radial search distance, and date query to send to the server
 * *Redux*
   * Action event to store returned data sets from the API to the store
+* *Table View*
+  * Table View of data from api call
+  * Can select which columns in the table are viewed
 
 **Back End**
 * *Server*
@@ -40,7 +44,7 @@ If you need/want to work on back end of the project, you'll first need to enter 
 
 ##Currently Working On...
 * *Front End*
-  * Create table to show crimes
+  * Map to give a visual of where the crime happened (if dataset allows it)
 
 ##Cities You Can Currently Access
   * Los Angeles, CA

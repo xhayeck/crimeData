@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react';
-// import ReactBootstrapSlider from 'react-bootstrap-slider';
 
 const searchDistance = ({distance, onChange}) => {
   return (
@@ -30,14 +29,3 @@ searchDistance.propTypes = {
 };
 
 export default searchDistance;
-
-
-//
-// <ReactBootstrapSlider
-//   orientation="feet"
-//   value={distance.feet}
-//   change={onChange}
-//   reverse={true}
-//   step={1}
-//   max={5280}
-//   min={1} />

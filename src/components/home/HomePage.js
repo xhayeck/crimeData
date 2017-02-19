@@ -7,6 +7,7 @@ class HomePage extends React.Component {
     return (
       <div>
         <LocationBar /> {/*Where the user inputs data to query the Api's*/}
+        <br />
         <CrimeTableView /> {/*Where the crime stats are put into a table view for the user*/}
       </div>
     );
