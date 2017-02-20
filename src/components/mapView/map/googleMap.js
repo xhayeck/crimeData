@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 import GoogleMap from 'react-google-map';
 import GoogleMapLoader from 'react-google-maps-loader';
-import iconMarker from '../../../styles/pin_red.svg';
-import iconMarkerHover from '../../../styles/iconMarkerHover.svg';
+import iconMarker from '../../../styles/iconMarker.png';
+import iconMarkerHover from '../../../styles/iconMarkerHover.png';
 
 
 const apiKey = 'apiKey';
