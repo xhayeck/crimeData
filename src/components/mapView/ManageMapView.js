@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import GoogleMapLoader from './map/googleMap.js';
 
 
 class ManageMap extends React.Component {
@@ -18,11 +19,15 @@ class ManageMap extends React.Component {
   render() {
     return (
       <div>
-        MAP!!!
+        <GoogleMapLoader />
       </div>
     );
   }
 }
+
+// ManageMap.propTypes = {
+//   google: PropTypes.
+// }
 
 function mapStateToProps(state) {
   return {

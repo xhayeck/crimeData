@@ -1,7 +1,7 @@
 import React from 'react';
 import LocationBar from '../locationBar/ManageLocationBar.js';
 import CrimeTableView from '../crimeTableView/ManageCrimeTableView.js';
-import ManageMap from '../map/ManageMap.js';
+import ManageMap from '../mapView/ManageMapView.js';
 
 class HomePage extends React.Component {
   render() {
