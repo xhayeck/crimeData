@@ -8,7 +8,10 @@ import autoprefixer from 'autoprefixer';
 import path from 'path';
 
 const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('production'),
+  'process.env': {
+    'NODE_ENV': JSON.stringify('production'),
+    'googleMapsApi': JSON.stringify(process.env.googleMapsApi)
+  },
   __DEV__: false
 };
 

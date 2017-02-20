@@ -5,7 +5,7 @@ import iconMarker from '../../../styles/iconMarker.png';
 import iconMarkerHover from '../../../styles/iconMarkerHover.png';
 
 
-const apiKey = 'apiKey';
+const API_URL = process.env.googleMapsApi;
 
 const Map = ({googleMaps}) => (
   <div className="map">
@@ -71,5 +71,5 @@ Map.propTypes = {
 
 export default GoogleMapLoader(Map, {
   libraries: ['places'],
-  key: apiKey
+  key: API_URL
 });
