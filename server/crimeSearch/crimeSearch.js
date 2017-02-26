@@ -29,8 +29,9 @@ module.exports = {
             res.send(error);
           } else if(!error && response.statusCode == 200) {
             body = JSON.parse(body);
-            let latitude = body.results[0].geometry.location.lat;
-            let longitude = body.results[0].geometry.location.lng;
+            let coord = body.results[0].geometry.location;
+            let latitude = coord.lat;
+            let longitude = coord.lng;
             let sources = list[address.state];
             let cityCount = 0; //Setting up count to make sure every city in the state is iterated through
             let apiCount = 0; //Setting up count to make sure every api in the city is iterated through
@@ -61,20 +62,28 @@ module.exports = {
                   }
                   let exist = body.search('message'); //Checks if api returns crime data or message from api stating an error happened because columns don't exist (if columns don't exist, then that's not the city we want)
                   if(exist === -1 && body.length > 3) { //checks if what was returned was proper crime data
-                    crimes.push(JSON.parse(body));
+                    let queryResult = JSON.parse(body);
+                    for(let index = 0; index < queryResult.length; index++) {
+                      for(let header in city['headers']) {
+                        if(queryResult[index].hasOwnProperty(header) && city['headers'][header] !== '') {
+                          let tempVal = queryResult[index][header];
+                          queryResult[index][city['headers'][header]] = tempVal;
+                          delete queryResult[index][header];
+                        }
+                      }
+                    }
+                    crimes.push(queryResult);
                   }
                   if(response) {
                     apiCount++;
                   }
                   if(cityCount === sources.length && apiCount === apiSize) { //To make sure all api calls are finished before sending back to client
-                    if(crimes.length > 1) {
+                    coord.zoom = 14;
+                    crimes.push(coord);
                       for(let i = 1; i < crimes.length; i++) {
                         crimes[0] = crimes[0].concat(crimes[i]);
                       }
                       res.send(crimes[0]);
-                    } else {
-                      res.send(crimes[0]);
-                    }
                   }
                 });
               }
@@ -111,22 +120,31 @@ module.exports = {
                 }
                 let exist = body.search('message'); //Checks if api returns crime data or message from api stating an error happened because columns don't exist (if columns don't exist, then that's not the city we want)
                 if(exist === -1 && body.length > 3) { //checks if what was returned was proper crime data
-                  crimes.push(JSON.parse(body));
+                  let queryResult = JSON.parse(body);
+                  for(let index = 0; index < queryResult.length; index++) {
+                    for(let header in city['headers']) {
+                      if(queryResult[index].hasOwnProperty(header) && city['headers'][header] !== '') {
+                        let tempVal = queryResult[index][header];
+                        queryResult[index][city['headers'][header]] = tempVal;
+                        delete queryResult[index][header];
+                      }
+                    }
+                  }
+                  crimes.push(queryResult);
                 }
                 if(response) {
                   apiCount++;
                 }
                 if(cityCount === state.length && apiCount === apiSize) { //To make sure all api calls are finished before sending back to client
-                  if(crimes.length > 1) {
+                  city['cityLoc'].zoom = 12;
+                  crimes.push(city['cityLoc']);
                     for(let i = 1; i < crimes.length; i++) {
                       crimes[0] = crimes[0].concat(crimes[i]);
                     }
                     res.send(crimes[0]);
-                  } else {
-                    res.send(crimes[0]);
                   }
                 }
-              });
+              );
             }
           }
           cityCount++;

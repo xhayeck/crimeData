@@ -2,5 +2,6 @@ export default {
   soughtCrimes: [],
   ranges: [{date: 'Last 30 Days'}, {date: 'This Month'}, {date: 'Last Month'}, {date: 'This Quarter'}, {date: 'Last Quarter'}, {date: 'This Year'}, {date: 'Last Year'}],
   filteredCrimes: [],
-  newCrimeCall: false
+  newCrimeCall: false,
+  mapCenter: {"lat" : 47.6062095, "lng" : -122.3320708}
 };

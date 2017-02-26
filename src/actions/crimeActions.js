@@ -1,14 +1,17 @@
 require('isomorphic-fetch');
 import * as types from './actionTypes.js';
 
-export function loadCrimeStats() {
-  return {type: types.LOAD_CRIME_STATS};
-}
+// export function loadCrimeStats(crimes) {
+//   return {type: types.LOAD_CRIME_STATS};
+// }
 
 export function soughtCrimeStats(soughtCrimes) {
   return {type: types.SOUGHT_CRIME_STATS, soughtCrimes};
 }
 
+export function locCenter(mapCenter) {
+  return {type: types.SEARCH_CENTER, mapCenter};
+}
 
 export function getCrime(info) {
   return dispatch => {
@@ -27,14 +30,11 @@ export function getCrime(info) {
         return response.json();
       })
       .then(function(crimes) {
+        let coord = crimes.splice(crimes.length - 1, 1);
         console.log('jsonResponse: ', crimes);
+        console.log('crimes[1]: ', coord[0]);
         dispatch(soughtCrimeStats(crimes));
+        dispatch(locCenter(coord[0]));
       });
     };
 }
-
-// export function loadCrimes() {
-//   return function(dispatch) {
-//     dispatch(loadCrimeStats());
-//   };
-// }
