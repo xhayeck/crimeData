@@ -34,6 +34,8 @@ If you need/want to work on back end of the project, you'll first need to enter 
 * *Table View*
   * Table View of data from api call
   * Can select which columns in the table are viewed
+* *Map View*
+  * If dataset contains GPS coordinates of crime location, they will be shown on the map
 
 **Back End**
 * *Server*
@@ -44,7 +46,7 @@ If you need/want to work on back end of the project, you'll first need to enter 
 
 ##Currently Working On...
 * *Front End*
-  * Map to give a visual of where the crime happened (if dataset allows it)
+  * Dropdown menu for column selection in table view
 
 ##Cities You Can Currently Access
   * Los Angeles, CA
