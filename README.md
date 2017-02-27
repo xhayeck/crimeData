@@ -56,7 +56,7 @@ If you need/want to work on back end of the project, you'll first need to enter 
   * Los Angeles, CA
   * San Francisco, CA
   * Chicago, IL
-  * New Orleans, LA
+  * New Orleans, LA (datasets do not provide geolocation for crimes)
   * New York, NY
   * Seattle, WA
 
