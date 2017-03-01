@@ -19,7 +19,6 @@ class ManageMap extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     let zoom = nextProps.mapCenter.zoom; //grabs zoom level
-    delete nextProps.mapCenter.zoom; //deletes zoom level from object
 
     let mapArray = JSON.parse(JSON.stringify(nextProps.filteredCrimes)); //create new space in memory rather than pointing to same space
     for(let i = 0; i < mapArray.length; i++) { //to cycle through each crime object in array
@@ -60,13 +59,13 @@ class ManageMap extends React.Component {
       crimeObject.icon = crimeMarker;
       crimeObject.onLoaded = function(googleMaps, map, marker) { //setting function for map to load crime
         let contentString = '<div>'
-                          + '<h3>' + crimeObject['title'] + '</h3>'
-                          + '<div>'
-                          + '<p>' + crimeObject['Date'] + '</p>'
-                          + '<p>' + crimeObject['Description'] + '</p>'
-                          + '<p>' + crimeObject['Address'] + '</p>'
-                          + '</div>'
-                          + '</div>';
+                            + '<h3>' + 'Title: ' + crimeObject['title'] + '</h3>'
+                              + '<div>'
+                                + '<p>' + 'Date: '+ crimeObject['Date'] + '</p>'
+                                + '<p>' + 'Description: ' + crimeObject['title'] + '</p>'
+                                + '<p>' + 'Address: ' + crimeObject['Address'] + '</p>'
+                              + '</div>'
+                            + '</div>'; //setting what the info window will say
         const infoWindow = new googleMaps.InfoWindow({
           content: contentString
         });
@@ -91,11 +90,14 @@ class ManageMap extends React.Component {
     centerPosition.position = nextProps.mapCenter; //sets the center position
     mapArray.push(centerPosition); //places centerPosition object into crimes array
 
-    this.setState({crimesArray: mapArray}); //sets the crimes to state
-    this.setState({mapCenter: nextProps.mapCenter}); //sets the center of the map to state
-    this.setState({zoom: zoom}); //sets the zoom level to state
     this.setState({fetched: false}, function() { //shuts down map render
-      this.setState({fetched: true}); //brings back map render
+      this.setState({crimesArray: mapArray}, function() { //sets the crimes to state
+        this.setState({mapCenter: nextProps.mapCenter}, function() { //sets the center of the map to state
+          this.setState({zoom: zoom}, function() { //sets the zoom level to state
+            this.setState({fetched: true}); //brings back map render
+          });
+        });
+      });
     });
   }
 

@@ -38,6 +38,7 @@ If you need/want to work on back end of the project, you'll first need to enter 
 * *Table View*
   * Table View of data from api call
   * Can select which columns in the table are viewed
+  * Can filter for specific data in each column that user is interested in
 * *Map View*
   * If dataset contains GPS coordinates of crime location, they will be shown on the map
 
@@ -50,7 +51,7 @@ If you need/want to work on back end of the project, you'll first need to enter 
 
 ##Currently Working On...
 * *Front End*
-  * Add Google Analytics
+  *
 
 ##Cities You Can Currently Access
   * Los Angeles, CA
