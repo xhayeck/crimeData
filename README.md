@@ -51,15 +51,32 @@ If you need/want to work on back end of the project, you'll first need to enter 
 
 ##Currently Working On...
 * *Front End*
-  *
+  
 
-##Cities You Can Currently Access
+##Cities You Can Currently Access Are...
   * Los Angeles, CA
   * San Francisco, CA
   * Chicago, IL
-  * New Orleans, LA (datasets do not provide geolocation for crimes)
+  * New Orleans, LA
   * New York, NY
   * Seattle, WA
+
+##There Are Some Limitations...
+So because we are querying the data that the cities provide, we are limited to what they give us. These are those limitations:
+  * Los Angeles, CA:
+    * Only the datasets for the years between 2011 and 2016 are available. In addition, they have not started posting the dataset for 2017 yet.
+  * San Francisco, CA:
+    * The dataset begins in 2003. However, they do continuously update their database so that the most up to date is two weeks prior from the current date.
+  * Chicago, IL:
+    * The datasets begins in  2001. However, they do continuously update their database so that the most up to date is one week prior from the current date.
+  * New Orleans, LA:
+    * No dataset provides geolocation for crime, so a radial search cannot, currently, be done.
+    * The datasets begins in  2009. However, they do continuously update their database so that the most up to date is about one day prior from the current date.
+  * New York, NY:
+    * Only the datasets for the years between 2006 and 2016 are available. They have not started posting the dataset for 2017 yet.
+  * Seattle, WA:
+    * The dataset begins in Oct. of 2010 and is continuously updated to provide information to within the last few hours.
+
 
 ##Many Thanks To...
   * the SF Crime Data group at **Code for America** (https://github.com/sfbrigade/sf-crime-data). I saw they were building this for San Francisco only and I wanted to expand it's reach and turn it from being a client-side only app to a full stack app. Thanks for the inspiration!
