@@ -50,6 +50,9 @@ class CrimeTableView extends React.Component {
             column['value'] = '';
             column['display'] = {display: "inline"};
           }
+          if(key.includes('_')) {
+            column['show'] = false;
+          }
           columns.push(column);
         }
         this.setState({columns: columns}, function() { //'this.setState' is asynchronous, using nested functions for proper firing order

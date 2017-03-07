@@ -338,10 +338,10 @@ module.exports = {
         'cad_cdw_id': '', //Oct2010ToPresent
         'cad_event_number': '', //Oct2010ToPresent
         'general_offense_number': 'General Offense Number', //Oct2010ToPresent
-        'event_clearance_code': 'Crime Code', //Oct2010ToPresent
-        'event_clearance_description': '', //Oct2010ToPresent
-        'event_clearance_subgroup': '', //Oct2010ToPresent
-        'event_clearance_group': '', //Oct2010ToPresent
+        'event_clearance_code': 'Crime Clearance Code', //Oct2010ToPresent
+        'event_clearance_description': 'Crime Clearance Description', //Oct2010ToPresent
+        'event_clearance_subgroup': 'Crime_Clearance_Subgroup', //Oct2010ToPresent
+        'event_clearance_group': 'Crime Clearance Group', //Oct2010ToPresent
         'event_clearance_date': 'Date', //Oct2010ToPresent
         'hundred_block_location': 'Address', //Oct2010ToPresent
         'district_sector': 'District Sector', //Oct2010ToPresent
@@ -351,7 +351,7 @@ module.exports = {
         'latitude': 'latitude', //Oct2010ToPresent
         'incident_location': 'Location', //Oct2010ToPresent (object, first key, array)
         'initial_type_description': 'Description', //Oct2010ToPresent
-        'initial_type_subgroup': 'Crime Subgroup', //Oct2010ToPresent
+        'initial_type_subgroup': 'Crime_Subgroup', //Oct2010ToPresent
         'initial_type_group': 'Crime Group', //Oct2010ToPresent
         'at_scene_time': 'Arrived At Scene' //Oct2010ToPresent
       },
