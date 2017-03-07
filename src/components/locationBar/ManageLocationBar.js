@@ -9,6 +9,7 @@ import SearchDistance from './searchDistance/searchDistance.js';
 import Calendar from './calendar/calendar.js';
 import SearchButton from './searchButton/searchButton.js';
 import {rangesFormattedForDropdown} from '../../selectors/selectors.js';
+import toastr from 'toastr';
 
 class ManageLocationBar extends React.Component {
   constructor(props, context) {
@@ -66,7 +67,8 @@ class ManageLocationBar extends React.Component {
     this.props.callCrime.crimeCall(true); //let redux store know that an api call has been made
     this.props.actions.getCrime({address: this.state.address, distance: this.state.distance, dates: this.state.dates}) //api call
       .catch(error => {
-        console.error('getCrime error: ', error);
+        toastr.error('No Crime Found!');
+        console.error(error);
       });
   }
 

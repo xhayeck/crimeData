@@ -11,6 +11,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css';
 import '../node_modules/react-table/react-table.css';
 import './styles/index.css';
+import '../node_modules/toastr/build/toastr.min.css';
 
 const store = configureStore();
 // store.dispatch(loadCrimes());

@@ -7,3 +7,5 @@ export const FILTER_CRIMES = 'FILTER_CRIMES';
 
 export const TRUE_CRIME_CALL = 'TRUE_CRIME_CALL';
 export const FALSE_CRIME_CALL = 'FALSE_CRIME_CALL';
+
+export const CITY_INFO_LOAD = 'CITY_INFO_LOAD';
