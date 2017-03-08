@@ -10,7 +10,8 @@ import path from 'path';
 const GLOBALS = {
   'process.env': {
     'NODE_ENV': JSON.stringify('production'),
-    'googleMapsApi': JSON.stringify(process.env.googleMapsApi)
+    'googleMapsApi': JSON.stringify(process.env.googleMapsApi),
+    'googleAnalytics': JSON.stringify(process.env.googleAnalytics)
   },
   __DEV__: false
 };
